@@ -7,7 +7,7 @@ const port = 3000;
 
 app.use(express.json());
 
-// Simulated user data
+
 const users = [
   {
     id: 1,
