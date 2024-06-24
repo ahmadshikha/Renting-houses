@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import houseImage from "../../../assets/matt-mutlu-unsplash.jpg";
+import { useState } from "react";
 
 export const Login = () => {
+  const [user, setUser] = useState({
+    username:"",
+    password:""
+  })
   return (
     <div className="flex h-screen">
     <div className="hidden md:flex w-1/2 h-5/6 m-auto">
@@ -30,6 +35,7 @@ export const Login = () => {
             type="text"
             className="w-full shadow-lg shadow-slate-800"
             placeholder="Username"
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
         </label>
         
@@ -50,11 +56,15 @@ export const Login = () => {
             type="password"
             className="grow w-full shadow-lg shadow-slate-800"
             placeholder="Password"
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
         </label>
-        <p>If dont you have an account you can Signup 🌌</p>
+        <p className="text-lg text-center font-medium  mt-4 hover:[text-shadow:1px_1px_5px_#3333ff]">If dont you have an account you can Signup 🌌</p>
         <Link className="block w-1/2 m-auto" to="/signup">
-          <button className="w-full btn btn-outline mt-3">Signup</button>
+          <button onClick={console.log(user)} className="w-full btn btn-outline mt-3">Signup</button>
+        </Link>
+        <Link className="block w-1/2 m-auto" to="/">
+        <button className="btn btn-outline btn-info w-full mt-3">back to home</button>
         </Link>
       </form>
     </div>
