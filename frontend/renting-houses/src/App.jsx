@@ -1,10 +1,15 @@
+import {Routes,Route} from "react-router-dom"
+import { Signup } from "./pages/auth/signup/Signup";
+import { Login } from "./pages/auth/login/Login";
+
 function App() {
   return (
     <>
-    <button className="btn btn-outline btn-info mt-3">Info</button>
-    <button className="btn btn-outline btn-success mt-3">Success</button>
-    <button className="btn btn-outline btn-warning mt-3">Warning</button>
-    <button className="btn btn-outline btn-error mt-3">Error</button>
+   <Routes>
+    <Route path="/login" element={<Login></Login>}></Route>
+    <Route path="/signup" element={<Signup></Signup>}></Route>
+    {/* <Route path="/" element={<Hom} */}
+   </Routes>
     </>
     
   );
