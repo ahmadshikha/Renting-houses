@@ -15,8 +15,18 @@ const ownermodel =  mongoose.Schema(
  phone: {type:Number,
     require: true,
  },
+ phone: {type:Number,
+   require: true,
+},
+appartmentId:{
+   type:String
+}
+,role:{
+   type:String,
+   default:"user"
+}
   },
 
 );
-const owners = mongoose.model("owner", ownermodel);
-module.exports = {owners};
+const Owner = mongoose.model("Owner", ownermodel);
+module.exports = {Owner};
