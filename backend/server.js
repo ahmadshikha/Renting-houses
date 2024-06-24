@@ -1,11 +1,18 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const mongoose = require('mongoose');
 const app = express();
-const port = 3000;
+dotenv.config()
+
+const connectDB = require('./db/connectDb');
+const port = process.env.PORT || 3000
+const MONGO_URL = process.env.MONGO_URL
+
+dotenv.config()
 
 app.use(express.json());
+  
 
 
 const users = [
@@ -40,7 +47,8 @@ app.post('/login', async (req, res) => {
 
   res.json({ token });
 });
-
+  
+connectDB(MONGO_URL)
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
